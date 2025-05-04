@@ -27,12 +27,18 @@ public class CategorysController(ICategoryService categoryService) : ControllerB
     [HttpPost("")]
     public async Task<IActionResult> Add(CreateCategory category)
     {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+
         var result = await categoryService.AddAsync(category);
         return result.success ? Ok(result) : BadRequest(result);
     }
     [HttpPut("")]
     public async Task<IActionResult> Update(UpdateCategory category)
     {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+
         var result = await categoryService.UpdateAsync(category);
         return result.success ? Ok(result) : BadRequest(result);
     }

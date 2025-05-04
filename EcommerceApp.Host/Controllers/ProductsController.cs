@@ -25,12 +25,18 @@ public class ProductsController(IProductService productService) : ControllerBase
     [HttpPost("")]
     public async Task<IActionResult>Add(CreateProduct product)
     {
+        if(!ModelState.IsValid) 
+            return BadRequest(ModelState);
+
        var result= await productService.AddAsync(product);
         return result.success ? Ok(result) : BadRequest(result);
     }
     [HttpPut("")]
     public async Task<IActionResult>Update(UpdateProduct product)
     {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+
         var result = await productService.UpdateAsync(product);
         return result.success ? Ok(result) : BadRequest(result);
     }
