@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using EcommerceApp.Application.DTOs;
+using EcommerceApp.Application.DTOs.Common;
 using EcommerceApp.Application.DTOs.Product;
 using EcommerceApp.Application.Services.Interfaces;
 using EcommerceApp.Domain.Entities;

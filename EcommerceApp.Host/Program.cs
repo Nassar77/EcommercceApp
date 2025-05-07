@@ -1,3 +1,4 @@
+//   stoped in 52mintus
 using EcommerceApp.Infrastructure.DependencyInjection;
 using EcommerceApp.Application.DependencyInjection;
 using Scalar.AspNetCore;
@@ -20,10 +21,22 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddInfrastructureService(builder.Configuration);
 builder.Services.AddApplicationService();
+builder.Services.AddCors(builder =>
+{
+    builder.AddDefaultPolicy(options =>
+    {
+        options.AllowAnyHeader()
+        .AllowAnyMethod()
+        .WithOrigins("http://localhost:7067")
+       // .AllowAnyOrigin()
+        .AllowCredentials();
+    });
+});
 
 try
 {
     var app = builder.Build();
+    app.UseCors();
     app.UseSerilogRequestLogging();
     // Configure the HTTP request pipeline.
     if (app.Environment.IsDevelopment())

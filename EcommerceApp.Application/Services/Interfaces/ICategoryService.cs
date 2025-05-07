@@ -1,5 +1,5 @@
-﻿using EcommerceApp.Application.DTOs;
-using EcommerceApp.Application.DTOs.Category;
+﻿using EcommerceApp.Application.DTOs.Category;
+using EcommerceApp.Application.DTOs.Common;
 
 namespace EcommerceApp.Application.Services.Interfaces;
 

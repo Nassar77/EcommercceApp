@@ -1,4 +1,4 @@
-﻿using EcommerceApp.Application.DTOs;
+﻿using EcommerceApp.Application.DTOs.Common;
 using EcommerceApp.Application.DTOs.Product;
 
 namespace EcommerceApp.Application.Services.Interfaces;
