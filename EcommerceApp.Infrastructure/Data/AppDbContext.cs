@@ -12,6 +12,7 @@ public class AppDbContext(DbContextOptions options) : IdentityDbContext<AppUser>
     public DbSet<Category> Categories { get; set; }
     public DbSet<RefreshToken> RefreshTokens { get; set; }
     public DbSet<PaymentMethod> paymentMethods { get; set; }
+    public DbSet<Achieve> CheckoutAchieves { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -36,7 +37,7 @@ public class AppDbContext(DbContextOptions options) : IdentityDbContext<AppUser>
             .HasData(
             new PaymentMethod
             {
-                Id =Guid.NewGuid(),
+                Id =Guid.Parse("0196afbe-47fd-7ff3-b8b0-d127db849667"),
                 Name = "Credit Card",
             });
     }

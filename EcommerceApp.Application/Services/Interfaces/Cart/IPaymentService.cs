@@ -5,5 +5,5 @@ using EcommerceApp.Domain.Entities;
 namespace EcommerceApp.Application.Services.Interfaces.Cart;
 public interface IPaymentService
 {
-    Task<ServiceResponse>Pay(decimal totalAmount,IEnumerable<Product> CartProducts,IEnumerable<ProcessCart>carts);
+    Task<ServiceResponse> Pay(decimal totalAmount, IEnumerable<Product> CartProducts, IEnumerable<ProcessCart> carts);
 }

@@ -1,4 +1,5 @@
-﻿using EcommerceApp.Application.Services.Interfaces.Logging;
+﻿using EcommerceApp.Application.Services.Interfaces.Cart;
+using EcommerceApp.Application.Services.Interfaces.Logging;
 using EcommerceApp.Domain.Entities;
 using EcommerceApp.Domain.Entities.Identity;
 using EcommerceApp.Domain.Interfaces;
@@ -80,6 +81,10 @@ public static class ServiceContainer
         services.AddScoped<ITokenManagement, TokenManagement>();
         services.AddScoped<IRoleManagement, RoleManagement>();
         services.AddScoped<IPaymentMethod, PaymentMethodReposatory>();
+        services.AddScoped<IPaymentService, StripePaymentService>();
+        services.AddScoped<ICart, CartReposatory>();
+
+        Stripe.StripeConfiguration.ApiKey = config["Stripe:SecretKey"];
 
         return services;
     }
